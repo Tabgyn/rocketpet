@@ -2,12 +2,12 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import Home from '../pages/Home';
 import Sidebar from '../components/Sidebar';
-import MainContainer from '../components/MainContainer';
-import MainHeader from '../components/MainHeader';
-import MainContent from '../components/MainContent';
+import Header from '../components/Header';
 import GlobalStyle from '../styles/global';
+
+import Home from '../pages/Home';
+import Schedule from '../pages/Schedule';
 
 const Container = styled.div`
   display: flex;
@@ -16,16 +16,59 @@ const Container = styled.div`
   min-height: 100vh;
 `;
 
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1 1 0%;
+
+  background: #4ba3c7;
+  color: #fff;
+  position: relative;
+`;
+
+const MainContent = styled.div`
+  padding: 30px;
+`;
+
+const routes = [
+  {
+    path: '/',
+    exact: true,
+    title: 'Dashboard',
+    main: () => <Home />,
+  },
+  {
+    path: '/schedule',
+    title: 'Schedule',
+    main: () => <Schedule />,
+  },
+];
+
 const Routes = () => (
   <BrowserRouter>
     <Container>
       <GlobalStyle />
       <Sidebar />
       <MainContainer>
-        <MainHeader>Dashboard</MainHeader>
+        {routes.map((route, index) => (
+          <Route
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            render={() => <Header title={route.title} />}
+          />
+        ))}
+        {/* <MainHeader>
+          <h1>
+
+          </h1>
+        </MainHeader> */}
         <MainContent>
           <Switch>
-            <Route exact path="/" component={Home} />
+            {routes.map((route, index) => (
+              <Route key={index} path={route.path} exact={route.exact} component={route.main} />
+            ))}
           </Switch>
         </MainContent>
       </MainContainer>

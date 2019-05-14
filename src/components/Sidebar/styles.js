@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 export const Aside = styled.aside`
   width: 80px;
-  background: #009624;
+  background: #81d4fa;
 
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    background: #00c853;
+    background: #29b6f6;
     padding: 20px 30px;
 
     img {
@@ -38,13 +38,13 @@ export const Menu = styled.section`
 
       width: 100%;
       font-size: 14px;
-      color: #5efc82;
+      color: #b6ffff;
       padding: 15px 0;
     }
 
     ul li a svg {
       font-size: 24px;
-      color: #5efc82;
+      color: #b6ffff;
       margin: 0px 0px 3px;
     }
   }
@@ -53,7 +53,7 @@ export const Menu = styled.section`
 export const MenuItem = styled(Link)`
   :hover,
   :active {
-    background-color: #003300;
+    background-color: #4ba3c7;
     color: #fff;
   }
 

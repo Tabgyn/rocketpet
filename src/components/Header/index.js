@@ -1,28 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import {
-  Container, Logo, Nav, NavList, NavListItem, NavItem,
-} from './styles';
+import UserInfo from '../UserInfo';
+import { Container } from './styles';
 
-import logo from '../../assets/logo.svg';
-
-const Header = () => (
+const Header = ({ title }) => (
   <Container>
-    <Logo src={logo} alt="RocketPet" />
-    <Nav>
-      <NavList>
-        <NavListItem>
-          <NavItem>Item 1</NavItem>
-        </NavListItem>
-        <NavListItem>
-          <NavItem>Item 2</NavItem>
-        </NavListItem>
-        <NavListItem>
-          <NavItem>Item 3</NavItem>
-        </NavListItem>
-      </NavList>
-    </Nav>
+    <h1>{title}</h1>
+    <div>
+      <div>
+        <UserInfo />
+      </div>
+    </div>
   </Container>
 );
+
+Header.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Header;
