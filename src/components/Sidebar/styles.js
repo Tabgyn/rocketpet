@@ -1,17 +1,17 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Aside = styled.aside`
   width: 80px;
-  background: #81d4fa;
+  background: #eceff1;
 
   header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    background: #29b6f6;
-    padding: 20px 30px;
+    background: #37474f;
+    padding: 20px 20px;
 
     img {
       height: 32px;
@@ -38,27 +38,27 @@ export const Menu = styled.section`
 
       width: 100%;
       font-size: 14px;
-      color: #b6ffff;
+      color: #62727b;
       padding: 15px 0;
     }
 
     ul li a svg {
       font-size: 24px;
-      color: #b6ffff;
+      color: #62727b;
       margin: 0px 0px 3px;
     }
   }
 `;
 
-export const MenuItem = styled(Link)`
+export const MenuItem = styled(NavLink)`
   :hover,
-  :active {
-    background-color: #4ba3c7;
-    color: #fff;
+  &.active {
+    background-color: #babdbe;
+    color: #102027;
   }
 
   :hover svg,
-  :active svg {
-    color: #fff;
+  &.active svg {
+    color: #102027;
   }
 `;

@@ -2,10 +2,10 @@ import React from 'react';
 
 // import { Container } from './styles';
 
-const Schedule = () => (
+const Pets = () => (
   <div>
-    <h1>Schedule</h1>
+    <h1>Pets</h1>
   </div>
 );
 
-export default Schedule;
+export default Pets;

@@ -7,7 +7,8 @@ import Header from '../components/Header';
 import GlobalStyle from '../styles/global';
 
 import Home from '../pages/Home';
-import Schedule from '../pages/Schedule';
+import Owners from '../pages/Owners';
+import Pets from '../pages/Pets';
 
 const Container = styled.div`
   display: flex;
@@ -22,7 +23,7 @@ const MainContainer = styled.div`
   align-items: stretch;
   flex: 1 1 0%;
 
-  background: #4ba3c7;
+  background: #babdbe;
   color: #fff;
   position: relative;
 `;
@@ -39,9 +40,14 @@ const routes = [
     main: () => <Home />,
   },
   {
-    path: '/schedule',
-    title: 'Schedule',
-    main: () => <Schedule />,
+    path: '/owners',
+    title: 'Owners',
+    main: () => <Owners />,
+  },
+  {
+    path: '/pets',
+    title: 'Pets',
+    main: () => <Pets />,
   },
 ];
 

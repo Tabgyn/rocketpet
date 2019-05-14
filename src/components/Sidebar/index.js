@@ -1,8 +1,8 @@
 import React from 'react';
-import { MdHome, MdSchedule } from 'react-icons/md';
+import { MdHome, MdPerson, MdPets } from 'react-icons/md';
 
 import { Aside, Menu, MenuItem } from './styles';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo_2.svg';
 
 const Sidebar = () => (
   <Aside>
@@ -13,15 +13,21 @@ const Sidebar = () => (
       <nav>
         <ul>
           <li>
-            <MenuItem to="/">
+            <MenuItem to="/" exact>
               <MdHome />
               Home
             </MenuItem>
           </li>
           <li>
-            <MenuItem to="/schedule">
-              <MdSchedule />
-              Schedule
+            <MenuItem to="/owners">
+              <MdPerson />
+              Owners
+            </MenuItem>
+          </li>
+          <li>
+            <MenuItem to="/pets">
+              <MdPets />
+              Pets
             </MenuItem>
           </li>
         </ul>
