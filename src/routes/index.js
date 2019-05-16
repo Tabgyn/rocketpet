@@ -8,6 +8,7 @@ import GlobalStyle from '../styles/global';
 
 import Home from '../pages/Home';
 import Owners from '../pages/Owners';
+import OwnersAdd from '../pages/Owners/Add';
 import Pets from '../pages/Pets';
 
 const Container = styled.div`
@@ -45,6 +46,11 @@ const routes = [
     main: () => <Owners />,
   },
   {
+    path: '/owners/add',
+    title: 'Owners',
+    main: () => <OwnersAdd />,
+  },
+  {
     path: '/pets',
     title: 'Pets',
     main: () => <Pets />,
@@ -65,11 +71,6 @@ const Routes = () => (
             render={() => <Header title={route.title} />}
           />
         ))}
-        {/* <MainHeader>
-          <h1>
-
-          </h1>
-        </MainHeader> */}
         <MainContent>
           <Switch>
             {routes.map((route, index) => (

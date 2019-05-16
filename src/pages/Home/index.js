@@ -48,13 +48,11 @@ export default class Main extends Component {
         {!pets.length && <p>We do not have any pets, how sad ... :(</p>}
         <List>
           {pets.map(pet => (
-            <ListItem>
+            <ListItem key={pet.id}>
               <img src={pet.picture} alt="pecture" />
               <strong>{pet.name}</strong>
               <span>{pet.owner}</span>
-              <Button href={`/pets/:${pet.id}`} type="button">
-                View
-              </Button>
+              <Button href={`/pets/:${pet.id}`}>View</Button>
             </ListItem>
           ))}
         </List>

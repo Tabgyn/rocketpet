@@ -41,13 +41,13 @@ export const ListItem = styled.li`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
 
   color: rgb(255, 255, 255);
-  font-weight: 500;
+  font-weight: bold;
   cursor: pointer;
   font-size: 16px;
   align-self: stretch;
