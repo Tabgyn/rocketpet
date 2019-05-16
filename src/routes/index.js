@@ -9,6 +9,7 @@ import GlobalStyle from '../styles/global';
 import Home from '../pages/Home';
 import Owners from '../pages/Owners';
 import OwnersAdd from '../pages/Owners/Add';
+import OwnersView from '../pages/Owners/View';
 import Pets from '../pages/Pets';
 
 const Container = styled.div`
@@ -42,16 +43,25 @@ const routes = [
   },
   {
     path: '/owners',
+    exact: true,
     title: 'Owners',
     main: () => <Owners />,
   },
   {
+    path: '/owners/:ownerId',
+    exact: true,
+    title: 'Owners',
+    main: () => <OwnersView />,
+  },
+  {
     path: '/owners/add',
+    exact: true,
     title: 'Owners',
     main: () => <OwnersAdd />,
   },
   {
     path: '/pets',
+    exact: true,
     title: 'Pets',
     main: () => <Pets />,
   },
