@@ -39,25 +39,25 @@ const routes = [
     path: '/',
     exact: true,
     title: 'Dashboard',
+    header: true,
     main: () => <Home />,
   },
   {
     path: '/owners',
     exact: true,
     title: 'Owners',
+    header: true,
     main: () => <Owners />,
   },
   {
-    path: '/owners/:ownerId',
-    exact: true,
-    title: 'Owners',
-    main: () => <OwnersView />,
-  },
-  {
     path: '/owners/add',
-    exact: true,
     title: 'Owners',
     main: () => <OwnersAdd />,
+  },
+  {
+    path: '/owners/:ownerId',
+    title: 'Owners',
+    main: () => <OwnersView />,
   },
   {
     path: '/pets',
@@ -73,14 +73,16 @@ const Routes = () => (
       <GlobalStyle />
       <Sidebar />
       <MainContainer>
-        {routes.map((route, index) => (
-          <Route
-            key={index}
-            path={route.path}
-            exact={route.exact}
-            render={() => <Header title={route.title} />}
-          />
-        ))}
+        <Switch>
+          {routes.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              exact={route.exact}
+              render={() => <Header title={route.title} />}
+            />
+          ))}
+        </Switch>
         <MainContent>
           <Switch>
             {routes.map((route, index) => (

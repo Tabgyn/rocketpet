@@ -70,7 +70,7 @@ export const Button = styled(NavLink)`
   justify-content: center;
   align-items: center;
 
-  color: rgb(255, 255, 255);
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
   font-size: 16px;
