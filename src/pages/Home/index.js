@@ -52,7 +52,7 @@ export default class Main extends Component {
               <img src={pet.picture} alt="pecture" />
               <strong>{pet.name}</strong>
               <span>{pet.owner}</span>
-              <Button href={`/pets/:${pet.id}`}>View</Button>
+              <Button href={`/pets/${pet.id}`}>View</Button>
             </ListItem>
           ))}
         </List>

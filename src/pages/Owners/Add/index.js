@@ -1,34 +1,50 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+
+import { Creators as OwnersActions } from '../../../store/ducks/owners';
 
 import { Container, Button } from './styles';
 
 class OwnersAdd extends Component {
   static propTypes = {
     history: PropTypes.shape({}).isRequired,
+    addOwnerRequest: PropTypes.func.isRequired,
   };
 
-  handleSubmit = () => {
-    const { history } = this.props;
+  state = {
+    files: [],
+  };
+
+  handleSubmit = (data) => {
+    const { history, addOwnerRequest } = this.props;
+    const { files } = this.state;
+    const avatar = files[0];
+
+    const owner = {
+      name: data.name,
+      avatar,
+    };
+
+    addOwnerRequest(owner);
+
     history.push('/owners');
   };
 
-  handleFile = () => {};
+  handleFile = (e) => {
+    this.setState({ files: e.target.files });
+  };
 
   render() {
     return (
       <Container>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} encType="multipart/form-data">
           <section>
             <label htmlFor="avatar">Select an avatar</label>
-            <Input
-              name="avatar"
-              id="avatar"
-              type="file"
-              onChange={e => this.handleFile(e.target.files[0])}
-            />
+            <Input name="avatar" id="avatar" type="file" onChange={this.handleFile} />
           </section>
 
           <section>
@@ -43,4 +59,15 @@ class OwnersAdd extends Component {
   }
 }
 
-export default withRouter(OwnersAdd);
+const mapStateToProps = state => ({
+  favorites: state.favorites,
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators(OwnersActions, dispatch);
+
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(OwnersAdd),
+);

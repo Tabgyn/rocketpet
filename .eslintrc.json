@@ -15,6 +15,7 @@
     "react/jsx-one-expression-per-line": "off",
     "react/no-array-index-key": "off",
     "jsx-a11y/label-has-for": "off",
-    "jsx-a11y/label-has-associated-control": "off"
+    "jsx-a11y/label-has-associated-control": "off",
+    "max-len": ["error", { "code": 120 }]
   }
 }
