@@ -5,11 +5,14 @@ import { Creators as OwnerActions } from '../ducks/owners';
 
 export function* addOwner(action) {
   try {
-    const ownerData = {
-      name: action.payload.owner.name,
-      avatar: action.payload.owner.avatar,
+    const ownerData = action.payload.owner;
+    const options = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
     };
-    yield call(api.post, '/owners', { headers: { 'Content-Type': 'multipart/form-data' }, body: ownerData });
+
+    yield call(api.post, '/owners', ownerData, options);
     yield put(OwnerActions.addOwnerSuccess(ownerData));
   } catch (error) {
     yield put(OwnerActions.addOwnerFailure('Error registering owner'));
